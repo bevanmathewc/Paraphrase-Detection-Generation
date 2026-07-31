@@ -1,0 +1,40 @@
+name: paraphrase
+
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+
+  # Core scientific libraries
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyter
+
+  # PyTorch
+  - pytorch
+  - torchvision
+  - torchaudio
+
+  # pip packages
+  - pip
+
+  - pip:
+      - transformers==4.55.0
+      - datasets==4.0.0
+      - huggingface_hub==0.34.4
+      - sentence-transformers==5.0.0
+      - evaluate==0.4.5
+      - bert-score==0.3.13
+      - nltk
+      - streamlit
+      - gradio
+      - accelerate
+      - sentencepiece
+      - sacrebleu
+      - rouge-score
+      - tqdm
