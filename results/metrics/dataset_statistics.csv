@@ -1,0 +1,11 @@
+Dataset,Split,Samples,Columns
+MRPC,train,3668,"sentence1, sentence2, label, idx"
+MRPC,validation,408,"sentence1, sentence2, label, idx"
+MRPC,test,1725,"sentence1, sentence2, label, idx"
+QQP,train,363846,"question1, question2, label, idx"
+QQP,validation,40430,"question1, question2, label, idx"
+QQP,test,390965,"question1, question2, label, idx"
+PAWS,train,49401,"id, sentence1, sentence2, label"
+PAWS,test,8000,"id, sentence1, sentence2, label"
+PAWS,validation,8000,"id, sentence1, sentence2, label"
+MSCOCO,train,414010,"caption1, caption2"
