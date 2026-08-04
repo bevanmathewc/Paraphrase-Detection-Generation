@@ -68,11 +68,40 @@ def print_model_summary(model):
     )
     print(f"Parameters: {total:,}")
 
-def log_experiment(
-    excel_path,
-    row
-):
+
+def log_experiment(excel_path, experiment):
+
     wb = load_workbook(excel_path)
     ws = wb.active
+
+    columns = [
+        "Experiment ID",
+        "Date",
+        "Phase",
+        "Model",
+        "Dataset",
+        "Train Split",
+        "Validation Split",
+        "Test Split",
+        "Batch Size",
+        "Learning Rate",
+        "Epochs",
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F1",
+        "ROC-AUC",
+        "BLEU",
+        "ROUGE",
+        "BERTScore",
+        "Train Time",
+        "Inference Time",
+        "Notes",
+        "Status"
+    ]
+
+    row = [experiment.get(col, "N/A") for col in columns]
+
     ws.append(row)
+
     wb.save(excel_path)
