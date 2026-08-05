@@ -7,6 +7,7 @@ import random
 import numpy as np
 import torch
 from openpyxl import load_workbook
+import joblib
 
 def create_directory(path):
     Path(path).mkdir(parents=True, exist_ok=True)
@@ -105,3 +106,13 @@ def log_experiment(excel_path, experiment):
     ws.append(row)
 
     wb.save(excel_path)
+
+def save_model(model, filepath):
+    """
+    Save any trained model using joblib.
+    """
+
+    filepath = Path(filepath)
+    filepath.parent.mkdir(parents=True, exist_ok=True)
+
+    joblib.dump(model, filepath)
