@@ -85,12 +85,21 @@ def compute_metrics(eval_pred):
         axis=1
     )
 
-    probabilities = logits[:, 1]
+    import torch
+
+    probabilities = (
+        torch.softmax(
+            torch.tensor(logits),
+            dim=1
+        )[:, 1]
+        .numpy()
+    )
 
     precision, recall, f1, _ = precision_recall_fscore_support(
         labels,
         predictions,
-        average="binary"
+        average="binary",
+        zero_division=0
     )
 
     accuracy = accuracy_score(
@@ -190,4 +199,13 @@ def load_saved_model(
     return AutoModelForSequenceClassification.from_pretrained(
         path
     )
+
+def load_saved_tokenizer(path):
+    """
+    Load a saved tokenizer.
+    """
+
+    return AutoTokenizer.from_pretrained(path)
+
+
 
